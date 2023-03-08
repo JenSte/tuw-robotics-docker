@@ -78,7 +78,10 @@ tmp/ws/src/tuw_launches:
 
 tmp/ws/src/rosaria:
 	git clone -b devel                  git@github.com:tuw-robotics/rosaria.git $@
-	
+
+tmp/ws/src/trajectory_planner:
+	git clone --branch ros1             git@github.com:JenSte/trajectory_planner.git
+
 repo-clone: \
 	tmp/ws/src/rosaria \
 	tmp/ws/src/tuw_msgs \
@@ -89,7 +92,8 @@ repo-clone: \
 	tmp/ws/src/tuw_rviz \
 	tmp/ws/src/tuw_diffdrive \
 	tmp/ws/src/tuw_global_planner \
-	tmp/ws/src/tuw_launches
+	tmp/ws/src/tuw_launches \
+	tmp/ws/src/trajectory_planner
 
 repo-pull:
 	find . -type d -name .git -exec echo {} \; -exec git --git-dir={} --work-tree=${PROJECT_DIR}/{}/.. pull origin \;
